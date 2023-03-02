@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lifelinesms/screens/auth/AuthScreen.dart';
 import 'screens/mainScreens.dart';
+import 'screens/started/started.screen.dart';
 
 class MyApp extends StatefulWidget{
   const MyApp({Key? key}) : super(key: key);
@@ -13,22 +13,26 @@ class MyApp extends StatefulWidget{
 
 }
 class _MyApp extends State<MyApp> {
-  final mains = [const MainScreen()];
+  final mains = [const StartedScreen(), const MainScreen()];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "LifelineSMS",
+        title: "Shazam",
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primarySwatch: Colors.deepPurple,
+            scaffoldBackgroundColor: Color.fromRGBO(14, 14, 14, 1),
+            primarySwatch: Colors.red,
             textTheme: GoogleFonts.poppinsTextTheme(
               Theme.of(context).textTheme,
             ),
-            bottomNavigationBarTheme: BottomNavigationBarThemeData(
-                backgroundColor: Colors.white,
-                unselectedItemColor: Colors.black54,
-                selectedItemColor: Colors.deepPurple
-            )
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                backgroundColor: Color.fromRGBO(14, 14, 14, 1),
+                unselectedItemColor: Color.fromRGBO(101, 101, 101, 1),
+                selectedItemColor: Color.fromRGBO(247, 27, 25, 1),
+            ),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color.fromRGBO(14, 14, 14, 1)
+          )
         ),
         home: mains[0]
     );

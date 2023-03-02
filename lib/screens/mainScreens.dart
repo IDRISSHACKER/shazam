@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './started/started.screen.dart';
 import './home/home.screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -13,7 +12,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreen extends State<MainScreen> {
   int currentScreen = 0;
-  List<Widget> screens = [StartedScreen(), HomeScreen()];
+  List<Widget> screens = [const HomeScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +23,22 @@ class _MainScreen extends State<MainScreen> {
         onTap: (value) => setState(() {
           currentScreen = value;
         }),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         iconSize: 30.0,
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard_rounded),
-              label: "Dashboard"
+              icon: Icon(Icons.home_filled),
+              label: "Home"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.contacts),
-              label: "Contacts"),
+              icon: Icon(Icons.map_outlined),
+              label: "Map"
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.message_rounded),
-              label: "Messages"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings_accessibility_rounded),
-              label: "Profile"),
+              icon: Icon(Icons.person),
+              label: "User"
+          ),
         ],
       ),
     );
